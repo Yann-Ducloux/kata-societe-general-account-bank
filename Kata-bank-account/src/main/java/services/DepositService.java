@@ -14,6 +14,10 @@ public class DepositService {
      * @param somme   the somme
      */
     public void deposit(Account account, Long somme) {
-        account.setBalance(somme);
+        Long balance = 0L;
+        if(account.getBalance() != null) {
+            balance = account.getBalance();
+        }
+        account.setBalance(balance + somme);
     }
 }
