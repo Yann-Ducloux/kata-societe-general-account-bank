@@ -22,13 +22,16 @@ public class DepositService {
     public void deposit(Account account, List<Operation> operations, Long somme) {
         Long balance = 0L;
         Operation operation = new Operation();
+
         if(account.getBalance() != null) {
             balance = account.getBalance();
         }
+
         operation.setDateOperation(LocalDateTime.now());
         operation.setAmount(somme);
         operation.setTypeOperation(TypeOperation.DEPOSIT);
         operations.add(operation);
+
         account.setBalance(balance + somme);
     }
 }

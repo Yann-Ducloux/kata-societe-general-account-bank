@@ -19,12 +19,14 @@ public class WithdrawalServiceTest {
         Long sommeExpected = -1000L;
         Account account = new Account();
         List<Operation> operations = new ArrayList<>();
+
         //WHEN
         this.withdrawalService.withdrawal(account, operations, somme);
 
         //THEN
         assertEquals(sommeExpected, account.getBalance());
     }
+
     @Test
     public void should_multiple_withdrawal_in_my_account() {
         //GIVEN
@@ -36,6 +38,7 @@ public class WithdrawalServiceTest {
         Long fifthWithdrawal = 1456L;
         Account account = new Account();
         List<Operation> operations = new ArrayList<>();
+
         //WHEN
         this.withdrawalService.withdrawal(account, operations, firstWithdrawal);
         this.withdrawalService.withdrawal(account, operations, secondWithdrawal);

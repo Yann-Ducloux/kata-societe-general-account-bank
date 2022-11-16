@@ -27,20 +27,24 @@ public class HistoryServiceTest {
         Long fourthOperation = 45657L;
         Long balanceExpected = 41864L;
         Account account = new Account();
+
         List<Operation> operations = new ArrayList<>();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime localDateTime = LocalDateTime.now();
+
         String  accountStatementExpected = "The balance: "+ balanceExpected + " €\n" +
                 "The operation(s) :\n" +
                 "Date of operation is "+  localDateTime.format(formatter) +" the amount of operation is "+ firstOperation +" € and the type of operation is " + TypeOperation.DEPOSIT + "\n" +
                 "Date of operation is "+  localDateTime.format(formatter) +" the amount of operation is "+ secondOperation +" € and the type of operation is " + TypeOperation.WITHDRAWAL + "\n" +
                 "Date of operation is "+  localDateTime.format(formatter) +" the amount of operation is "+ thirdOperation +" € and the type of operation is " + TypeOperation.WITHDRAWAL + "\n" +
                 "Date of operation is "+  localDateTime.format(formatter) +" the amount of operation is "+ fourthOperation +" € and the type of operation is " + TypeOperation.DEPOSIT;
+
         //WHEN
         depositService.deposit(account, operations, firstOperation);
         withdrawalService.withdrawal(account, operations, secondOperation);
         withdrawalService.withdrawal(account, operations, thirdOperation);
         depositService.deposit(account, operations, fourthOperation);
+
         String accountStatementActual = historyService.statementPrinting(account, operations);
 
         //THEN
