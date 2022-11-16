@@ -1,13 +1,9 @@
 package services;
 
 import models.Account;
-import models.Operation;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class WithdrawalServiceTest {
     private final WithdrawalService withdrawalService = new WithdrawalService();
@@ -15,16 +11,15 @@ public class WithdrawalServiceTest {
     @Test
     public void should_withdrawal_in_my_account() {
         //GIVEN
-        Long somme = 1000L;
-        Long sommeExpected = -1000L;
+        Long amount = 1000L;
+        Long amountExpected = -1000L;
         Account account = new Account();
-        List<Operation> operations = new ArrayList<>();
 
         //WHEN
-        this.withdrawalService.withdrawal(account, operations, somme);
+        this.withdrawalService.withdrawal(account, amount);
 
         //THEN
-        assertEquals(sommeExpected, account.getBalance());
+        assertEquals(amountExpected, account.getBalance());
     }
 
     @Test
@@ -37,14 +32,13 @@ public class WithdrawalServiceTest {
         Long fourthWithdrawal = 6784L;
         Long fifthWithdrawal = 1456L;
         Account account = new Account();
-        List<Operation> operations = new ArrayList<>();
 
         //WHEN
-        this.withdrawalService.withdrawal(account, operations, firstWithdrawal);
-        this.withdrawalService.withdrawal(account, operations, secondWithdrawal);
-        this.withdrawalService.withdrawal(account, operations, thirdWithdrawal);
-        this.withdrawalService.withdrawal(account, operations, fourthWithdrawal);
-        this.withdrawalService.withdrawal(account, operations, fifthWithdrawal);
+        this.withdrawalService.withdrawal(account, firstWithdrawal);
+        this.withdrawalService.withdrawal(account, secondWithdrawal);
+        this.withdrawalService.withdrawal(account, thirdWithdrawal);
+        this.withdrawalService.withdrawal(account, fourthWithdrawal);
+        this.withdrawalService.withdrawal(account, fifthWithdrawal);
 
         //THEN
         assertEquals(sommeExpected, account.getBalance());
