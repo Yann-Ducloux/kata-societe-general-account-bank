@@ -7,6 +7,7 @@ import operation.Withdrawal;
 import java.time.LocalDateTime;
 
 /**
+ * @author Yann Ducloux
  * service qui gére le retrait sur un compte.
  */
 public class WithdrawalService {

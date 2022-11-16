@@ -5,7 +5,8 @@ import Interface.IOperation;
 import models.Account;
 
 /**
- * service qui l'historique sur un compte.
+ * @author Yann Ducloux
+ * service qui gére l'historique sur un compte.
  */
 public class HistoryService implements IHistoryService {
     /**

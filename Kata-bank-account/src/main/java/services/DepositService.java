@@ -7,6 +7,7 @@ import operation.Deposit;
 import java.time.LocalDateTime;
 
 /**
+ * @author Yann Ducloux
  * service qui gére le dépôt sur un compte.
  */
 public class DepositService {

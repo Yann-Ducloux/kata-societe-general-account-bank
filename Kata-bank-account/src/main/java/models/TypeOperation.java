@@ -1,5 +1,16 @@
 package models;
 
+/**
+ * @author Yann Ducloux
+ * définit le type d'opération.
+ */
 public enum TypeOperation {
-    DEPOSIT, WITHDRAWAL
+    /**
+     * Deposit type operation.
+     */
+    DEPOSIT,
+    /**
+     * Withdrawal type operation.
+     */
+    WITHDRAWAL
 }
