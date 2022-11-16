@@ -1,7 +1,11 @@
 package services;
 
 import models.Account;
+import models.Operation;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,9 +18,10 @@ public class DepositServiceTest {
         //GIVEN
         Long somme = 1000L;
         Account account = new Account();
+        List<Operation> operations = new ArrayList<>();
 
         //WHEN
-        depositService.deposit(account, somme);
+        depositService.deposit(account, operations, somme);
 
         //THEN
         assertEquals(somme, account.getBalance());
@@ -31,13 +36,14 @@ public class DepositServiceTest {
         Long fouthDeposit = 542L;
         Long fifthDeposit = 4524L;
         Account account = new Account();
+        List<Operation> operations = new ArrayList<>();
 
         //WHEN
-        depositService.deposit(account, firstDeposit);
-        depositService.deposit(account, secondDeposit);
-        depositService.deposit(account, thirdDeposit);
-        depositService.deposit(account, fouthDeposit);
-        depositService.deposit(account, fifthDeposit);
+        depositService.deposit(account, operations, firstDeposit);
+        depositService.deposit(account, operations, secondDeposit);
+        depositService.deposit(account, operations, thirdDeposit);
+        depositService.deposit(account, operations, fouthDeposit);
+        depositService.deposit(account, operations, fifthDeposit);
 
         //THEN
         assertEquals(sommeExpected, account.getBalance());
