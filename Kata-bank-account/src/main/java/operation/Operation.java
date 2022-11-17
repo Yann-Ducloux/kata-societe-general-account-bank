@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 /**
  * @author Yann Ducloux
- * définit un opération.
+ * définit une opération.
  */
 public abstract class Operation implements IOperation {
     /**
